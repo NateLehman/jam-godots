@@ -30,9 +30,3 @@
 *.sln text eol=lf
 *.csproj text eol=lf
 *.cs text eol=lf
-
-# Ignore .gitattributes files within subprojects
-**/.gitattributes export-ignore
-
-# Ignore .gitignore files within subprojects
-**/.gitignore export-ignore

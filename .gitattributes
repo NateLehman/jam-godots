@@ -1,0 +1,38 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Force text files to use LF line endings in the repository
+*.gd text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.cfg text eol=lf
+*.shader text eol=lf
+*.import text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+
+# Handle binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.bmp binary
+*.ogg binary
+*.wav binary
+*.mp3 binary
+*.zip binary
+*.exe binary
+*.dll binary
+*.pck binary
+
+# Additional file types for Godot projects
+*.sln text eol=lf
+*.csproj text eol=lf
+*.cs text eol=lf
+
+# Ignore .gitattributes files within subprojects
+**/.gitattributes export-ignore
+
+# Ignore .gitignore files within subprojects
+**/.gitignore export-ignore

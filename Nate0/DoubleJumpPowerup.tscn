@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dty4afs1vxc4x"]
+
+[ext_resource type="Script" path="res://DoubleJumpPowerup.cs" id="1_7v3v7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2xuxb"]
+radius = 16.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uxi4o"]
+size = Vector2(32, 32)
+
+[node name="DoubleJumpPowerup" type="Area2D"]
+script = ExtResource("1_7v3v7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2xuxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_uxi4o")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

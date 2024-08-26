@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj8gkjx1w5q1a"]
 
-[ext_resource type="Script" path="res://TitleScreen.gd" id="1_ot6v7"]
+[ext_resource type="Script" path="res://TitleScreen.cs" id="1_ot6v7"]
 
 [sub_resource type="SystemFont" id="SystemFont_42j35"]
 
@@ -58,4 +58,4 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 text = "Start Game"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://byemrsceo5pxs"]
+
+[ext_resource type="Script" path="res://ScrollingBackground.gd" id="1_ybh5w"]
+[ext_resource type="PackedScene" path="res://Character.tscn" id="2_x4r7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8n7q"]
+size = Vector2(1152, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yu5o"]
+size = Vector2(200, 20)
+
+[node name="PlatformScene" type="Node2D"]
+
+[node name="ScrollingBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_ybh5w")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ScrollingBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ScrollingBackground/ParallaxLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.129412, 0.6, 0.807843, 1)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(576, 623)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_j8n7q")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -576.0
+offset_top = -25.0
+offset_right = 576.0
+offset_bottom = 25.0
+color = Color(0.192157, 0.392157, 0.172549, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(300, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+shape = SubResource("RectangleShape2D_2yu5o")
+
+[node name="ColorRect" type="ColorRect" parent="Platform1"]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 10.0
+color = Color(0.521569, 0.32549, 0.2, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(700, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("RectangleShape2D_2yu5o")
+
+[node name="ColorRect" type="ColorRect" parent="Platform2"]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 10.0
+color = Color(0.521569, 0.32549, 0.2, 1)
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(1000, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+shape = SubResource("RectangleShape2D_2yu5o")
+
+[node name="ColorRect" type="ColorRect" parent="Platform3"]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 10.0
+color = Color(0.521569, 0.32549, 0.2, 1)
+
+[node name="Character" parent="." instance=ExtResource("2_x4r7q")]
+position = Vector2(100, 550)

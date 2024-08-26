@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://byemrsceo5pxs"]
+[gd_scene load_steps=5 format=3 uid="uid://byemrsceo5pxs"]
 
-[ext_resource type="Script" path="res://ScrollingBackground.gd" id="1_ybh5w"]
-[ext_resource type="PackedScene" path="res://Character.tscn" id="2_x4r7q"]
-[ext_resource type="PackedScene" path="res://DoubleJumpPowerup.tscn" id="3_u8n4p"]
+[ext_resource type="PackedScene" uid="uid://b6ry6jbtcmj8w" path="res://Character.tscn" id="2_x4r7q"]
+[ext_resource type="PackedScene" uid="uid://dty4afs1vxc4x" path="res://DoubleJumpPowerup.tscn" id="3_u8n4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8n7q"]
 size = Vector2(1152, 50)
@@ -11,17 +10,6 @@ size = Vector2(1152, 50)
 size = Vector2(200, 20)
 
 [node name="PlatformScene" type="Node2D"]
-
-[node name="ScrollingBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("1_ybh5w")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ScrollingBackground"]
-motion_mirroring = Vector2(1152, 0)
-
-[node name="ColorRect" type="ColorRect" parent="ScrollingBackground/ParallaxLayer"]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.129412, 0.6, 0.807843, 1)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(576, 623)

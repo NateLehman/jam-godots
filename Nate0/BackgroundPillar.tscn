@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bko5jocvf4qro"]
+
+[node name="BackgroundPillar" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -200.0
+offset_right = 10.0
+offset_bottom = 0.0
+color = Color(0.207843, 0.105882, 0.0431373, 1)

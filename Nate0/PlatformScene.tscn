@@ -1,26 +1,88 @@
-[gd_scene load_steps=5 format=3 uid="uid://byemrsceo5pxs"]
+[gd_scene load_steps=8 format=3 uid="uid://byemrsceo5pxs"]
 
 [ext_resource type="PackedScene" uid="uid://b6ry6jbtcmj8w" path="res://Character.tscn" id="2_x4r7q"]
 [ext_resource type="PackedScene" uid="uid://dty4afs1vxc4x" path="res://DoubleJumpPowerup.tscn" id="3_u8n4p"]
+[ext_resource type="PackedScene" path="res://ForegroundPillar.tscn" id="4_l2f3m"]
+[ext_resource type="PackedScene" path="res://MiddlegroundPillar.tscn" id="5_xk7nt"]
+[ext_resource type="PackedScene" path="res://BackgroundPillar.tscn" id="6_d6r8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8n7q"]
-size = Vector2(1152, 50)
+size = Vector2(2304, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yu5o"]
 size = Vector2(200, 20)
 
 [node name="PlatformScene" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayerBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(2304, 0)
+
+[node name="BackgroundPillar1" parent="ParallaxBackground/ParallaxLayerBackground" instance=ExtResource("6_d6r8p")]
+position = Vector2(200, 300)
+
+[node name="BackgroundPillar2" parent="ParallaxBackground/ParallaxLayerBackground" instance=ExtResource("6_d6r8p")]
+position = Vector2(600, 300)
+
+[node name="BackgroundPillar3" parent="ParallaxBackground/ParallaxLayerBackground" instance=ExtResource("6_d6r8p")]
+position = Vector2(1000, 300)
+
+[node name="BackgroundPillar4" parent="ParallaxBackground/ParallaxLayerBackground" instance=ExtResource("6_d6r8p")]
+position = Vector2(1400, 300)
+
+[node name="BackgroundPillar5" parent="ParallaxBackground/ParallaxLayerBackground" instance=ExtResource("6_d6r8p")]
+position = Vector2(1800, 300)
+
+[node name="ParallaxLayerMiddleground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(2304, 0)
+
+[node name="MiddlegroundPillar1" parent="ParallaxBackground/ParallaxLayerMiddleground" instance=ExtResource("5_xk7nt")]
+position = Vector2(400, 300)
+
+[node name="MiddlegroundPillar2" parent="ParallaxBackground/ParallaxLayerMiddleground" instance=ExtResource("5_xk7nt")]
+position = Vector2(800, 300)
+
+[node name="MiddlegroundPillar3" parent="ParallaxBackground/ParallaxLayerMiddleground" instance=ExtResource("5_xk7nt")]
+position = Vector2(1200, 300)
+
+[node name="MiddlegroundPillar4" parent="ParallaxBackground/ParallaxLayerMiddleground" instance=ExtResource("5_xk7nt")]
+position = Vector2(1600, 300)
+
+[node name="MiddlegroundPillar5" parent="ParallaxBackground/ParallaxLayerMiddleground" instance=ExtResource("5_xk7nt")]
+position = Vector2(2000, 300)
+
+[node name="ParallaxLayerForeground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(2304, 0)
+
+[node name="ForegroundPillar1" parent="ParallaxBackground/ParallaxLayerForeground" instance=ExtResource("4_l2f3m")]
+position = Vector2(300, 300)
+
+[node name="ForegroundPillar2" parent="ParallaxBackground/ParallaxLayerForeground" instance=ExtResource("4_l2f3m")]
+position = Vector2(700, 300)
+
+[node name="ForegroundPillar3" parent="ParallaxBackground/ParallaxLayerForeground" instance=ExtResource("4_l2f3m")]
+position = Vector2(1100, 300)
+
+[node name="ForegroundPillar4" parent="ParallaxBackground/ParallaxLayerForeground" instance=ExtResource("4_l2f3m")]
+position = Vector2(1500, 300)
+
+[node name="ForegroundPillar5" parent="ParallaxBackground/ParallaxLayerForeground" instance=ExtResource("4_l2f3m")]
+position = Vector2(1900, 300)
+
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(576, 623)
+position = Vector2(1152, 623)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_j8n7q")
 
 [node name="ColorRect" type="ColorRect" parent="Ground"]
-offset_left = -576.0
+offset_left = -1152.0
 offset_top = -25.0
-offset_right = 576.0
+offset_right = 1152.0
 offset_bottom = 25.0
 color = Color(0.192157, 0.392157, 0.172549, 1)
 
@@ -63,8 +125,40 @@ offset_right = 100.0
 offset_bottom = 10.0
 color = Color(0.521569, 0.32549, 0.2, 1)
 
+[node name="Platform4" type="StaticBody2D" parent="."]
+position = Vector2(1400, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
+shape = SubResource("RectangleShape2D_2yu5o")
+
+[node name="ColorRect" type="ColorRect" parent="Platform4"]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 10.0
+color = Color(0.521569, 0.32549, 0.2, 1)
+
+[node name="Platform5" type="StaticBody2D" parent="."]
+position = Vector2(1800, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5"]
+shape = SubResource("RectangleShape2D_2yu5o")
+
+[node name="ColorRect" type="ColorRect" parent="Platform5"]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 10.0
+color = Color(0.521569, 0.32549, 0.2, 1)
+
 [node name="Character" parent="." instance=ExtResource("2_x4r7q")]
 position = Vector2(100, 550)
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+limit_left = 0
+limit_top = 0
+limit_right = 2304
+limit_bottom = 648
 
 [node name="DoubleJumpPowerup" parent="." instance=ExtResource("3_u8n4p")]
 position = Vector2(393, 571)

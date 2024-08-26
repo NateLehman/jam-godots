@@ -11,14 +11,27 @@ public partial class Character : CharacterBody2D
 	private float _gravity;
 	private int _jumpsLeft = 1;
 	private bool _hasDoubleJump = false;
+	private Menu _menu;
 
 	public override void _Ready()
 	{
 		_gravity = (float)ProjectSettings.GetSetting("physics/2d/default_gravity");
+		_menu = GetNode<Menu>("Menu");
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("ui_cancel"))
+		{
+			_menu.ToggleMenu();
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (GetTree().Paused)
+			return;
+
 		Vector2 velocity = Velocity;
 
 		if (!IsOnFloor())

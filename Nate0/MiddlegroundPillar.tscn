@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://c0v6yfxp8gj2w"]
+[gd_scene format=3 uid="uid://w21ruv0tp33s"]
 
 [node name="MiddlegroundPillar" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -15.0
-offset_top = -250.0
-offset_right = 15.0
-offset_bottom = 0.0
+offset_left = -1.0
+offset_top = -539.0
+offset_right = 29.0
+offset_bottom = 693.0
 color = Color(0.278431, 0.145098, 0.0588235, 1)

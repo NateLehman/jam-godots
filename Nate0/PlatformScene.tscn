@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b6ry6jbtcmj8w" path="res://Character.tscn" id="2_x4r7q"]
 [ext_resource type="PackedScene" uid="uid://dty4afs1vxc4x" path="res://DoubleJumpPowerup.tscn" id="3_u8n4p"]
-[ext_resource type="PackedScene" path="res://ForegroundPillar.tscn" id="4_l2f3m"]
-[ext_resource type="PackedScene" path="res://MiddlegroundPillar.tscn" id="5_xk7nt"]
-[ext_resource type="PackedScene" path="res://BackgroundPillar.tscn" id="6_d6r8p"]
+[ext_resource type="PackedScene" uid="uid://dg8gane2lpln0" path="res://ForegroundPillar.tscn" id="4_l2f3m"]
+[ext_resource type="PackedScene" uid="uid://w21ruv0tp33s" path="res://MiddlegroundPillar.tscn" id="5_xk7nt"]
+[ext_resource type="PackedScene" uid="uid://bff21h343l2a8" path="res://BackgroundPillar.tscn" id="6_d6r8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8n7q"]
 size = Vector2(2304, 50)

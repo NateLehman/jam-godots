@@ -37,7 +37,7 @@ public partial class Character : CharacterBody2D
 		}
 
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		float currentSpeed = Speed * (Input.IsActionPressed("ui_select") ? SprintMultiplier : 1.0f);
+		float currentSpeed = Speed * (Input.IsKeyPressed(Key.Shift) ? SprintMultiplier : 1.0f);
 
 		if (direction != Vector2.Zero)
 		{

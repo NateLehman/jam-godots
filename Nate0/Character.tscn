@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6ry6jbtcmj8w"]
+[gd_scene load_steps=6 format=3 uid="uid://b6ry6jbtcmj8w"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_bh8t8"]
 [ext_resource type="PackedScene" uid="uid://b8k8l5jy6y6qx" path="res://Menu.tscn" id="2_k3q7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p28q"]
 size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_m87bb"]
+offsets = PackedFloat32Array(0.12987, 0.909091)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nhdx3"]
+gradient = SubResource("Gradient_m87bb")
+width = 198
+height = 198
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.825688, 0.224771)
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_bh8t8")
@@ -20,3 +32,11 @@ color = Color(1, 0.328395, 0.37136, 1)
 shape = SubResource("RectangleShape2D_4p28q")
 
 [node name="Menu" parent="." instance=ExtResource("2_k3q7f")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.746816, 0.648952, 1)
+shadow_color = Color(0, 0, 0, 0.772549)
+shadow_filter = 1
+shadow_filter_smooth = 2.6
+texture = SubResource("GradientTexture2D_nhdx3")
+texture_scale = 3.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byemrsceo5pxs"]
+[gd_scene load_steps=11 format=3 uid="uid://byemrsceo5pxs"]
 
 [ext_resource type="PackedScene" uid="uid://b6ry6jbtcmj8w" path="res://Character.tscn" id="2_x4r7q"]
 [ext_resource type="PackedScene" uid="uid://dty4afs1vxc4x" path="res://DoubleJumpPowerup.tscn" id="3_u8n4p"]
@@ -10,10 +10,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8n7q"]
 size = Vector2(2304, 50)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uqitd"]
+polygon = PackedVector2Array(-1152, -25, 1152, -25, 1152, 25, -1152, 25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yu5o"]
 size = Vector2(200, 20)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ht54x"]
+polygon = PackedVector2Array(-100, -10, 100, -10, 100, 10, -100, 10)
+
 [node name="PlatformScene" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -87,6 +96,9 @@ offset_right = 1152.0
 offset_bottom = 25.0
 color = Color(0.192157, 0.392157, 0.172549, 1)
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Ground"]
+occluder = SubResource("OccluderPolygon2D_uqitd")
+
 [node name="Platform1" type="StaticBody2D" parent="."]
 position = Vector2(300, 450)
 
@@ -99,6 +111,9 @@ offset_top = -10.0
 offset_right = 100.0
 offset_bottom = 10.0
 color = Color(0.521569, 0.32549, 0.2, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform1"]
+occluder = SubResource("OccluderPolygon2D_ht54x")
 
 [node name="Platform2" type="StaticBody2D" parent="."]
 position = Vector2(700, 300)
@@ -113,6 +128,9 @@ offset_right = 100.0
 offset_bottom = 10.0
 color = Color(0.521569, 0.32549, 0.2, 1)
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform2"]
+occluder = SubResource("OccluderPolygon2D_ht54x")
+
 [node name="Platform3" type="StaticBody2D" parent="."]
 position = Vector2(1000, 500)
 
@@ -125,6 +143,9 @@ offset_top = -10.0
 offset_right = 100.0
 offset_bottom = 10.0
 color = Color(0.521569, 0.32549, 0.2, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform3"]
+occluder = SubResource("OccluderPolygon2D_ht54x")
 
 [node name="Platform4" type="StaticBody2D" parent="."]
 position = Vector2(1400, 400)
@@ -139,6 +160,9 @@ offset_right = 100.0
 offset_bottom = 10.0
 color = Color(0.521569, 0.32549, 0.2, 1)
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform4"]
+occluder = SubResource("OccluderPolygon2D_ht54x")
+
 [node name="Platform5" type="StaticBody2D" parent="."]
 position = Vector2(1800, 200)
 
@@ -151,6 +175,9 @@ offset_top = -10.0
 offset_right = 100.0
 offset_bottom = 10.0
 color = Color(0.521569, 0.32549, 0.2, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform5"]
+occluder = SubResource("OccluderPolygon2D_ht54x")
 
 [node name="Character" parent="." instance=ExtResource("2_x4r7q")]
 position = Vector2(100, 550)

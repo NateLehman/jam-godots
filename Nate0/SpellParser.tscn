@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://mkdam0abvleg"]
+
+[ext_resource type="Script" path="res://SpellParser.cs" id="1_2sg1x"]
+
+[node name="SpellParser" type="CanvasLayer"]
+script = ExtResource("1_2sg1x")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 67.0625
+grow_vertical = 0

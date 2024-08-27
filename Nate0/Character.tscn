@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6ry6jbtcmj8w"]
+[gd_scene load_steps=5 format=3 uid="uid://b6ry6jbtcmj8w"]
 
 [ext_resource type="Script" path="res://Character.cs" id="1_bh8t8"]
 [ext_resource type="PackedScene" uid="uid://b8k8l5jy6y6qx" path="res://Menu.tscn" id="2_k3q7f"]
+[ext_resource type="PackedScene" uid="uid://mkdam0abvleg" path="res://SpellParser.tscn" id="3_5xj88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p28q"]
 size = Vector2(32, 32)
@@ -20,3 +21,5 @@ color = Color(1, 0.328395, 0.37136, 1)
 shape = SubResource("RectangleShape2D_4p28q")
 
 [node name="Menu" parent="." instance=ExtResource("2_k3q7f")]
+
+[node name="SpellParser" parent="." instance=ExtResource("3_5xj88")]

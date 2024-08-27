@@ -17,6 +17,7 @@ public partial class Character : CharacterBody2D
 	private bool _hasDoubleJump = false;
 	private bool _hasMultiJump = false;
 	private Menu _menu;
+	private SpellParser _spellParser;
 
 	public bool HasDoubleJump => _hasDoubleJump;
 
@@ -24,6 +25,7 @@ public partial class Character : CharacterBody2D
 	{
 		_gravity = (float)ProjectSettings.GetSetting("physics/2d/default_gravity");
 		_menu = GetNode<Menu>("Menu");
+		_spellParser = GetNode<SpellParser>("SpellParser");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -48,7 +50,11 @@ public partial class Character : CharacterBody2D
 			_jumpsLeft--;
 		}
 
-		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+		Vector2 direction = Vector2.Zero;
+		if (!_spellParser.HasFocus())
+		{
+			direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+		}
 		float targetSpeed = BaseSpeed * (Input.IsActionPressed("sprint") ? SprintMultiplier : 1.0f);
 
 		if (direction != Vector2.Zero)

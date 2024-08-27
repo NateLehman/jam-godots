@@ -20,4 +20,3 @@ color = Color(1, 0.328395, 0.37136, 1)
 shape = SubResource("RectangleShape2D_4p28q")
 
 [node name="Menu" parent="." instance=ExtResource("2_k3q7f")]
-process_mode = 3

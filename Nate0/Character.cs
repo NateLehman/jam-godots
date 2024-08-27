@@ -5,13 +5,17 @@ public partial class Character : CharacterBody2D
 {
 	private const float Speed = 300.0f;
 	private const float SprintMultiplier = 1.5f;
-	private const float JumpVelocity = -400.0f;
+	private const float JumpVelocity = -600.0f;
 	private const int MaxJumps = 2;
 
 	private float _gravity;
 	private int _jumpsLeft = 1;
+	private int _maxJumps = 1;
 	private bool _hasDoubleJump = false;
+	private bool _hasMultiJump = false;
 	private Menu _menu;
+
+	public bool HasDoubleJump => _hasDoubleJump;
 
 	public override void _Ready()
 	{
@@ -40,7 +44,7 @@ public partial class Character : CharacterBody2D
 		}
 		else
 		{
-			_jumpsLeft = _hasDoubleJump ? MaxJumps : 1;
+			_jumpsLeft = _maxJumps;
 		}
 
 		if (Input.IsActionJustPressed("jump") && _jumpsLeft > 0)
@@ -48,6 +52,7 @@ public partial class Character : CharacterBody2D
 			velocity.Y = JumpVelocity;
 			_jumpsLeft--;
 		}
+
 
 		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
 		float currentSpeed = Speed * (Input.IsActionPressed("sprint") ? SprintMultiplier : 1.0f);
@@ -68,6 +73,15 @@ public partial class Character : CharacterBody2D
 	public void CollectDoubleJump()
 	{
 		_hasDoubleJump = true;
-		_jumpsLeft = MaxJumps;
+		_maxJumps = MaxJumps;
+		_jumpsLeft = _maxJumps;
+	}
+
+	public void EnableMultiJump(int additionalJumps)
+	{
+		_hasMultiJump = true;
+		_maxJumps = MaxJumps + additionalJumps;
+		_jumpsLeft = _maxJumps;
+		GD.Print($"Multi-jump enabled! You can now jump {_maxJumps} times!");
 	}
 }

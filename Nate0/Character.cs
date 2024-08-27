@@ -43,14 +43,14 @@ public partial class Character : CharacterBody2D
 			_jumpsLeft = _hasDoubleJump ? MaxJumps : 1;
 		}
 
-		if (Input.IsActionJustPressed("ui_accept") && _jumpsLeft > 0)
+		if (Input.IsActionJustPressed("jump") && _jumpsLeft > 0)
 		{
 			velocity.Y = JumpVelocity;
 			_jumpsLeft--;
 		}
 
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		float currentSpeed = Speed * (Input.IsKeyPressed(Key.Shift) ? SprintMultiplier : 1.0f);
+		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+		float currentSpeed = Speed * (Input.IsActionPressed("sprint") ? SprintMultiplier : 1.0f);
 
 		if (direction != Vector2.Zero)
 		{

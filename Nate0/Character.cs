@@ -3,10 +3,13 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-	private const float Speed = 300.0f;
-	private const float SprintMultiplier = 1.5f;
+	private const float BaseSpeed = 600.0f; // Increased from 300.0f
+	private const float SprintMultiplier = 1.75f; // Increased from 1.5f
 	private const float JumpVelocity = -600.0f;
 	private const int MaxJumps = 2;
+
+	private const float Acceleration = 2000.0f; // New acceleration constant
+	private const float Friction = 1000.0f; // New friction constant
 
 	private float _gravity;
 	private int _jumpsLeft = 1;
@@ -21,14 +24,6 @@ public partial class Character : CharacterBody2D
 	{
 		_gravity = (float)ProjectSettings.GetSetting("physics/2d/default_gravity");
 		_menu = GetNode<Menu>("Menu");
-	}
-
-	public override void _Input(InputEvent @event)
-	{
-		if (@event.IsActionPressed("ui_cancel"))
-		{
-			_menu.ToggleMenu();
-		}
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -53,17 +48,18 @@ public partial class Character : CharacterBody2D
 			_jumpsLeft--;
 		}
 
-
 		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-		float currentSpeed = Speed * (Input.IsActionPressed("sprint") ? SprintMultiplier : 1.0f);
+		float targetSpeed = BaseSpeed * (Input.IsActionPressed("sprint") ? SprintMultiplier : 1.0f);
 
 		if (direction != Vector2.Zero)
 		{
-			velocity.X = direction.X * currentSpeed;
+			// Apply acceleration
+			velocity.X = Mathf.MoveToward(velocity.X, direction.X * targetSpeed, Acceleration * (float)delta);
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(velocity.X, 0, currentSpeed);
+			// Apply friction
+			velocity.X = Mathf.MoveToward(velocity.X, 0, Friction * (float)delta);
 		}
 
 		Velocity = velocity;

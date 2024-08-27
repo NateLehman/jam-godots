@@ -24,13 +24,13 @@ public partial class Menu : CanvasLayer
 		menuControl.Visible = !menuControl.Visible;
 		GetTree().Paused = menuControl.Visible;
 	}
-
-	private void _on_resume_button_pressed()
+	
+	public void OnResumeButtonPressed()
 	{
 		ToggleMenu();
 	}
-
-	private void _on_title_screen_button_pressed()
+	
+	public void OnTitleScreenButtonPressed()
 	{
 		GetTree().Paused = false;
 		GetTree().ChangeSceneToFile("res://TitleScreen.tscn");

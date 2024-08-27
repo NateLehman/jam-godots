@@ -2,3 +2,4 @@
 *.translation
 **/.gitattributes
 **/.gitignore
+.vscode/

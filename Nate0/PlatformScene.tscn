@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byemrsceo5pxs"]
+[gd_scene load_steps=10 format=3 uid="uid://byemrsceo5pxs"]
 
 [ext_resource type="PackedScene" uid="uid://b6ry6jbtcmj8w" path="res://Character.tscn" id="2_x4r7q"]
 [ext_resource type="PackedScene" uid="uid://dty4afs1vxc4x" path="res://DoubleJumpPowerup.tscn" id="3_u8n4p"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://w21ruv0tp33s" path="res://MiddlegroundPillar.tscn" id="5_xk7nt"]
 [ext_resource type="PackedScene" uid="uid://bff21h343l2a8" path="res://BackgroundPillar.tscn" id="6_d6r8p"]
 [ext_resource type="PackedScene" uid="uid://dh6q7wy4ki8uk" path="res://MultiJumpPowerup.tscn" id="7_yq8r3"]
+[ext_resource type="PackedScene" uid="uid://d0ipu0jwl6aqg" path="res://Enemy.tscn" id="8_r2p3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8n7q"]
 size = Vector2(2304, 50)
@@ -166,3 +167,18 @@ position = Vector2(393, 571)
 
 [node name="MultiJumpPowerup" parent="." instance=ExtResource("7_yq8r3")]
 position = Vector2(1800, 150)
+
+[node name="Enemy1" parent="." instance=ExtResource("8_r2p3q")]
+position = Vector2(500, 400)
+
+[node name="Enemy2" parent="." instance=ExtResource("8_r2p3q")]
+position = Vector2(900, 250)
+
+[node name="Enemy3" parent="." instance=ExtResource("8_r2p3q")]
+position = Vector2(1200, 450)
+
+[node name="Enemy4" parent="." instance=ExtResource("8_r2p3q")]
+position = Vector2(1600, 350)
+
+[node name="Enemy5" parent="." instance=ExtResource("8_r2p3q")]
+position = Vector2(2000, 150)

@@ -3,13 +3,13 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-	private const float BaseSpeed = 600.0f; // Increased from 300.0f
-	private const float SprintMultiplier = 1.75f; // Increased from 1.5f
+	private const float BaseSpeed = 600.0f;
+	private const float SprintMultiplier = 1.75f;
 	private const float JumpVelocity = -600.0f;
 	private const int MaxJumps = 2;
 
-	private const float Acceleration = 2000.0f; // New acceleration constant
-	private const float Friction = 1000.0f; // New friction constant
+	private const float Acceleration = 2000.0f;
+	private const float Friction = 1000.0f;
 
 	private float _gravity;
 	private int _jumpsLeft = 1;
@@ -17,6 +17,9 @@ public partial class Character : CharacterBody2D
 	private bool _hasDoubleJump = false;
 	private bool _hasMultiJump = false;
 	private Menu _menu;
+
+	[Export]
+	public PackedScene ProjectileScene { get; set; }
 
 	public bool HasDoubleJump => _hasDoubleJump;
 
@@ -53,17 +56,30 @@ public partial class Character : CharacterBody2D
 
 		if (direction != Vector2.Zero)
 		{
-			// Apply acceleration
 			velocity.X = Mathf.MoveToward(velocity.X, direction.X * targetSpeed, Acceleration * (float)delta);
 		}
 		else
 		{
-			// Apply friction
 			velocity.X = Mathf.MoveToward(velocity.X, 0, Friction * (float)delta);
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+
+		// Handle shooting
+		if (Input.IsActionJustPressed("character_shoot"))
+		{
+			Shoot();
+		}
+	}
+
+	private void Shoot()
+	{
+		var projectile = ProjectileScene.Instantiate() as Projectile;
+		GetParent().AddChild(projectile);
+		Vector2 spawnPosition = GlobalPosition + new Vector2(20, 0); // Spawn slightly to the right
+		projectile.GlobalPosition = spawnPosition;
+		projectile.SetDirection(Vector2.Right);
 	}
 
 	public void CollectDoubleJump()

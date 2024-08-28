@@ -3,16 +3,16 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-	private const float Speed = 300.0f;
-	private const float SprintMultiplier = 1.5f;
-	private const float JumpVelocity = -600.0f;
-	private const int MaxJumps = 2;
+	protected const float Speed = 300.0f;
+	protected const float SprintMultiplier = 1.5f;
+	protected const float JumpVelocity = -600.0f;
+	protected const int MaxJumps = 2;
 
-	private float _gravity;
-	private int _jumpsLeft = 1;
-	private int _maxJumps = 1;
-	private bool _hasDoubleJump = false;
-	private bool _hasMultiJump = false;
+	protected float _gravity;
+	protected int _jumpsLeft = 1;
+	protected int _maxJumps = 1;
+	protected bool _hasDoubleJump = false;
+	protected bool _hasMultiJump = false;
 	private Menu _menu;
 
 	public bool HasDoubleJump => _hasDoubleJump;

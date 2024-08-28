@@ -39,10 +39,16 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Resume"
 
+[node name="KeyBindingsButton" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Key Bindings"
+
 [node name="TitleScreenButton" type="Button" parent="Control/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Return to Title Screen"
 
 [connection signal="pressed" from="Control/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/KeyBindingsButton" to="." method="_on_key_bindings_button_pressed"]
 [connection signal="pressed" from="Control/CenterContainer/VBoxContainer/TitleScreenButton" to="." method="_on_title_screen_button_pressed"]

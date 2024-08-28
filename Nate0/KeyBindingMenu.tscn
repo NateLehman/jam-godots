@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1234abcd"]
+
+[ext_resource type="Script" path="res://KeyBindingMenu.cs" id="1_abcde"]
+
+[node name="KeyBindingMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_abcde")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Key Bindings"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="MoveUpLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Move Up:"
+
+[node name="MoveUpButton" type="Button" parent="Control/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "W"
+
+[node name="MoveDownLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Move Down:"
+
+[node name="MoveDownButton" type="Button" parent="Control/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "S"
+
+[node name="MoveLeftLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Move Left:"
+
+[node name="MoveLeftButton" type="Button" parent="Control/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "A"
+
+[node name="MoveRightLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Move Right:"
+
+[node name="MoveRightButton" type="Button" parent="Control/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "D"
+
+[node name="BackButton" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/GridContainer/MoveUpButton" to="." method="_on_move_up_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/GridContainer/MoveDownButton" to="." method="_on_move_down_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/GridContainer/MoveLeftButton" to="." method="_on_move_left_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/GridContainer/MoveRightButton" to="." method="_on_move_right_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

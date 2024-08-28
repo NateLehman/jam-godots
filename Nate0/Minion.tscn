@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc16criunpg6i"]
+
+[ext_resource type="Script" path="res://Minion.cs" id="1_rp5lw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xiqo4"]
+
+[node name="Minion" type="CharacterBody2D"]
+script = ExtResource("1_rp5lw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xiqo4")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = 15.0
+color = Color(1, 1, 0.258824, 1)

@@ -153,7 +153,7 @@ offset_bottom = 10.0
 color = Color(0.521569, 0.32549, 0.2, 1)
 
 [node name="Character" parent="." instance=ExtResource("2_x4r7q")]
-position = Vector2(100, 550)
+position = Vector2(127, 547)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 limit_left = 0
@@ -162,7 +162,6 @@ limit_right = 2304
 limit_bottom = 648
 
 [node name="DoubleJumpPowerup" parent="." instance=ExtResource("3_u8n4p")]
-position = Vector2(393, 571)
 
 [node name="MultiJumpPowerup" parent="." instance=ExtResource("7_yq8r3")]
 position = Vector2(1800, 150)

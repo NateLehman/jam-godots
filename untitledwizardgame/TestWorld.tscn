@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b52b8wrk4hlhu"]
+
+[ext_resource type="PackedScene" uid="uid://dfxg00xuuosu" path="res://Character.tscn" id="1_opetd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xtxjp"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yflu"]
+albedo_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0rxdn"]
+size = Vector3(20, 0.1, 20)
+
+[node name="TestWorld" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_xtxjp")
+surface_material_override/0 = SubResource("StandardMaterial3D_7yflu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_0rxdn")
+
+[node name="Character" parent="." instance=ExtResource("1_opetd")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 0)
+shadow_enabled = true

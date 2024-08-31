@@ -162,6 +162,6 @@ limit_right = 2304
 limit_bottom = 648
 
 [node name="DoubleJumpPowerup" parent="." instance=ExtResource("3_u8n4p")]
-position = Vector2(342, 394)
+position = Vector2(308, 397)
 
 [node name="MultiJumpPowerup" parent="." instance=ExtResource("7_yq8r3")]

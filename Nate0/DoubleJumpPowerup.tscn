@@ -46,7 +46,7 @@ radius = 16.0
 script = ExtResource("1_7v3v7")
 
 [node name="HoverOffset" type="Node2D" parent="."]
-position = Vector2(0, -3.51845)
+position = Vector2(0, -4.69567)
 
 [node name="Sprite2D" type="Sprite2D" parent="HoverOffset"]
 texture = SubResource("PlaceholderTexture2D_uxi4o")
@@ -58,7 +58,7 @@ libraries = {
 autoplay = "hovering"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3.51845)
+position = Vector2(0, -4.69567)
 shape = SubResource("CircleShape2D_2xuxb")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
